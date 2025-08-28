@@ -69,6 +69,19 @@ ALLOWED_HOSTS = [
 AUTH_PROFILE_MODULE = 'core.User'
 AUTH_USER_MODEL = 'core.User'
 
+REST_FRAMEWORK = {
+
+    'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
+}
+
+SPECTACULAR_SETTINGS = {
+    'TITLE': 'FinanceAI API',
+    'DESCRIPTION': "The endpoints here for the financeAI project I am currently building. Hope it's fun!",
+    'VERSION': '1.0.0',
+    'SERVE_INCLUDE_SCHEMA': False,
+    # OTHER SETTINGS
+}
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',

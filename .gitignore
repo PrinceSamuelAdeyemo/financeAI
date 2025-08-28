@@ -4,3 +4,6 @@ backend/financeAIBackend/*/migrations/
 backend/financeAIBackend/__pycache__/
 backend/financeAIBackend/*/__pycache__/
 backend/financeAIBackend/.env
+
+frontend/finance_ai/node_modules/
+frontend/finance_ai/.env.local
