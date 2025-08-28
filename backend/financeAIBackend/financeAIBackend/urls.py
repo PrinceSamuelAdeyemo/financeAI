@@ -21,8 +21,8 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("core/", "core.urls", name="core"),
-    path("finance/", "finance.urls", name="finance")
+    path("core/", include("core.urls"), name="core"),
+    path("finance/", include("finance.urls"), name="finance")
 ]
 
 urlpatterns += static(
