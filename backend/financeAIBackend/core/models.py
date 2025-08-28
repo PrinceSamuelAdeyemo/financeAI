@@ -29,7 +29,7 @@ class User(AbstractUser):
     )
 
     USERNAME_FIELD = 'email'
-    REQUIRED_FIELDS = []
+    REQUIRED_FIELDS = ['username']
 
     objects = CustomUserManager()
 
@@ -41,7 +41,7 @@ class AuthSession(models.Model):
     id = models.UUIDField(default=uuid.uuid4, primary_key=True, editable=False)
     user_id = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     device_info = models.CharField(max_length=128, blank=True, null=True)
-    ip_address = models.IPAddressField(null=True, blank=True)
+    ip_address = models.GenericIPAddressField(null=True, blank=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -65,7 +65,7 @@ class Category(models.Model):
     user_id = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     name = models.CharField(max_length=50)
     type = models.CharField(max_length=128, choices=CATEGORY_TYPE)
-    icon = models.FileField(upload_to='/icons/categories', blank=True, null=True)
+    icon = models.FileField(upload_to='icons/categories', blank=True, null=True)
 
     def __str__(self):
         return self.name
