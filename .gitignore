@@ -1,0 +1,6 @@
+
+backend/venv/
+backend/financeAIBackend/*/migrations/
+backend/financeAIBackend/__pycache__/
+backend/financeAIBackend/*/__pycache__/
+backend/financeAIBackend/.env
