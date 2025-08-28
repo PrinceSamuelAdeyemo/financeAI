@@ -13,42 +13,42 @@ from .serializers import (
 
 # Create your views here.
 class AccountViewset(viewsets.ModelViewSet):
-    queryset = Account
+    queryset = Account.objects.all()
     serializer_class = AccountSerializer
     permission_classes = [IsAuthenticated, IsOwner]
 
 
 class TransactionViewset(viewsets.ModelViewSet):
-    queryset = Transaction
+    queryset = Transaction.objects.all()
     serializer_class = TransactionSerializer
     permission_classes = [IsAuthenticated, IsOwner]
 
 
 class SubscriptionViewset(viewsets.ModelViewSet):
-    queryset = Subscription
+    queryset = Subscription.objects.all()
     serializer_class = SubscriptionSerializer
     permission_classes = [IsAuthenticated, IsOwner]
 
 
 class InvestmentViewset(viewsets.ModelViewSet):
-    queryset = Investment
+    queryset = Investment.objects.all()
     serializer_class = InvestmentSerializer
     permission_classes = [IsAuthenticated, IsOwner]
 
 
 class BudgetViewset(viewsets.ModelViewSet):
-    queryset = Budget
+    queryset = Budget.objects.all()
     serializer_class = BudgetSerializer
     permission_classes = [IsAuthenticated, IsOwner]
 
 
 class GoalViewset(viewsets.ModelViewSet):
-    queryset = Goal
+    queryset = Goal.objects.all()
     serializer_class = GoalSerializer
     permission_classes = [IsAuthenticated, IsOwner]
 
 
 class AI_InsightViewset(viewsets.ModelViewSet):
-    queryset = AI_Insight
+    queryset = AI_Insight.objects.all()
     serializer_class = AI_InsightSerializer
     permission_classes = [IsAuthenticated, IsOwner]
