@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'phonenumber_field',
+    'drf_spectacular',
 
     'core',
     'finance',
@@ -62,8 +63,8 @@ ROOT_URLCONF = 'financeAIBackend.urls'
 
 CORS_ALLOW_ALL_ORIGINS = True
 ALLOWED_HOSTS = [
-    'http://127.0.0.1:3000',
-    'http://localhost:3000'
+    "127.0.0.1",
+    "localhost",
 ]
 
 AUTH_PROFILE_MODULE = 'core.User'
