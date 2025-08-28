@@ -37,7 +37,7 @@ class User(AbstractUser):
         return self.email
 
 
-class AuthSessions(models.Model):
+class AuthSession(models.Model):
     id = models.UUIDField(default=uuid.uuid4, primary_key=True, editable=False)
     user_id = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
     device_info = models.CharField(max_length=128, blank=True, null=True)
@@ -50,6 +50,9 @@ class AuthSessions(models.Model):
 
 
 class Category(models.Model):
+    class Meta:
+        verbose_name_plural = "Categories"
+
     CATEGORY_TYPE = [
         ('expenses', 'Expenses'),
         ('income', 'Income'),
