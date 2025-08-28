@@ -68,31 +68,6 @@ class Category(models.Model):
         return self.name
 
 
-class Budget(models.Model):
-    id = models.UUIDField(default=uuid.uuid4, primary_key=True, editable=False)
-    user_id = models.ForeignKey(User, on_delete=models.PROTECT)
-    category_id = models.ForeignKey(Category, on_delete=models.SET_NULL)
-    amount = models.DecimalField(decimal_places=2)
-    start_date = models.DateField(null=True, blank=True)
-    end_date = models.DateTimeField(null=True, blank=True)
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
-    def __str__(self):
-        return f"{self.name} -- {self.amount}"
-
-
-class Goal(models.Model):
-    id = models.UUIDField(default=uuid.uuid4, primary_key=True, editable=False)
-    user_id = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
-    name = models.CharField(max_length=128)
-    target_amount = models.DecimalField(decimal_places=2)
-    current_amount = models.DecimalField(decimal_places=2)
-    deadline = models.DateField()
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
-
-
 class Notification(models.Model):
     id = models.UUIDField(default=uuid.uuid4, primary_key=True, editable=False)
     user_id = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
