@@ -5,8 +5,8 @@ import { Bell, MenuIcon } from "lucide-react"
 
 export default function DesktopNavbar(){
     return (
-        <div>
-            <p>jiii</p>
+        <div className="h-[7vh] border-b-1 border-gray-300 shadow">
+            <p></p>
         {/* <div className="relative flex flex-row justify-between pl-4 pr-8 bg-green-500 lg:justify-start lg:flex-col lg:h-full lg:p-0"> */}
             {/* <div className="flex items-center gap-4 lg:gap-0 lg:items-start bg-yellow-500">
                 <MenuIcon className="lg:hidden" />

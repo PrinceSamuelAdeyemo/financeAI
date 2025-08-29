@@ -9,12 +9,13 @@ export default function DashboardLayout({
 }) {
     return (
         <div className="relative flex flex-col h-[100vh] overflow-y-hidden lg:flex-row">
-            <div className="w-full lg:w-[20%] xl:[15%]">
+
+            <div className="w-full h-[7vh] lg:h-[100vh] lg:w-[20%] xl:[15%]">
               <DashboardSidebar />
             </div>
             
             <div className="lg:w-[80%] xl:w-[85%]">
-              <div className="hidden lg:block lg:w-fulll">
+              <div className="hidden lg:block lg:w-full">
                   <DesktopNavbar />
                 </div>
               {children}

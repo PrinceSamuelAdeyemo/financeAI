@@ -3,7 +3,7 @@ import SettingsIndicator from "./ui/SettingsIndicator"
 
 export default function ProfileIndicator() {
     return (
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 lg:justify-between">
             <div className="flex justify-center items-center bg-gray-300 rounded-full h-6 w-6 lg:h-10 lg:w-10">
                 <p>JD</p>
             </div>
