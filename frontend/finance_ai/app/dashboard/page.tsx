@@ -1,7 +1,16 @@
 import PageContainer from "@/components/PageContainer";
 import IncomeInsight from "@/components/IncomeInsight";
+import GraphComponent from "@/components/GraphComponent";
+import IncomeVSExpenses from "@/components/IncomeVSExpenses";
+import CategorySpendingPieChart from "@/components/CategorySpendingPieChart";
+import BalanceForecastChart from "@/components/BalanceForecastChart";
+import AI_Insight from "@/components/AI_Insight";
+import UpcomingBillComponent from "@/components/UpcomingBillComponent";
+import QuickActionButtonDashboard from "@/components/QuickActionButtonDashboard";
+import Transaction_Receipt_Buttons from "@/components/Transaction_Receipt_Buttons";
 
-import { InsightDataType } from "@/Types/allTypes";
+import { InsightDataType, } from "@/Types/allTypes";
+
 
 export default function Dashboard(){
 
@@ -32,10 +41,10 @@ export default function Dashboard(){
         },
     ]
 
+
     return (
         <PageContainer>
-
-            <div className="grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-4">
+            <div className="grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full">
                 {
                     InsightData.map((insight_data, index) => (
                         <IncomeInsight key={index} {...insight_data} />
@@ -43,7 +52,40 @@ export default function Dashboard(){
                 }
             </div>
 
-            <div className="flex justify-center items-center absolute bottom-10 right-5 bg-purple-800 h-10 w-10 rounded-full lg:hidden">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+                <GraphComponent title="Cash Flow" message="Income vs Expenses this month">
+                    <IncomeVSExpenses />
+                </GraphComponent>
+
+                <GraphComponent title="Spending by Category" message="Top 5 categories this month">
+                    <CategorySpendingPieChart />
+                </GraphComponent>
+            </div>
+
+            <div>
+                <GraphComponent title="Balance Forecast" message="Projected balance based on current spending patterns">
+                    <BalanceForecastChart />
+                </GraphComponent>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-4">
+                <div>
+                    <GraphComponent title="AI Insights" message="Personalized recommendations">
+                        <AI_Insight />
+                    </GraphComponent>
+                </div>
+                <div className="flex flex-col gap-4">
+                    <GraphComponent title="Upcoming Bills" message="Next 7 days">
+                        <UpcomingBillComponent />
+                    </GraphComponent>
+                    <GraphComponent title="Quick actions"  message="">
+                        <QuickActionButtonDashboard />
+                    </GraphComponent>
+
+                </div>
+            </div>
+
+            <div className="flex justify-center items-center absolute bottom-10 right-5 h-10 w-10 rounded-full lg:hidden">
                 <p className="text-white">+</p>
             </div>
                 
