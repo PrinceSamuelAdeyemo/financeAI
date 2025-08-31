@@ -12,7 +12,7 @@ export default function DashboardSidebar(){
             <div className="hidden lg:flex pt-4 h-full">
                 <Bottombar />
             </div>
-            <div className="flex gap-2 lg:absolute lg:bottom-8">
+            <div className="flex gap-2 lg:absolute lg:bottom-8 lg:w-full">
                 <Bell className="lg:hidden" />
                 <ProfileIndicator />
             </div>
