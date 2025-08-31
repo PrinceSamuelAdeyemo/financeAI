@@ -6,8 +6,8 @@ export default function DashboardSidebar(){
     return (
         <div className="flex flex-row items-center justify-between h-full px-2 border-b-1 shadow lg:px-0 lg:items-start lg:relative lg:border-none lg:shadow-none lg:flex-col">
             <div className="flex items-center gap-4 h-[7vh] w-full lg:gap-0 lg:justify-center lg:border-b-0 lg:border-gray-300 lg:shadow-sm">
-                <MenuIcon className="lg:hidden" />
-                <p className="font-bold text-purple-800 lg:text-xl lg:block">Finance AI</p>
+                {/* <MenuIcon className="hidden" /> */}
+                <p className="font-bold text-purple-800 pl-8 lg:text-xl lg:block">Finance AI</p>
             </div>
             <div className="hidden lg:flex pt-4 h-full">
                 <Bottombar />

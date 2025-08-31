@@ -1,6 +1,8 @@
 import dynamic from "next/dynamic";
 
 import PageContainer from "@/components/PageContainer";
+
+import { MenuIcon } from "lucide-react";
 const Lazy_EachTransactionInsightCard = dynamic(() => import('@/components/EachTransactionInsightCard'));
 const Lazy_EachTransactionInsightTable = dynamic(() => import('@/components/EachTransactionInsightTable'));
 
@@ -9,6 +11,9 @@ export default function Transactions(){
 
     return (
         <PageContainer>
+            <div className="flex justify-center items-center absolute -top-10 left-2 lg:hidden">
+                <MenuIcon />
+            </div>
 
             <div className="flex flex-col lg:flex-row lg:justify-between">
                 <div>

@@ -1,5 +1,5 @@
 import dynamic from "next/dynamic";
-import { PiggyBank } from "lucide-react";
+import { PiggyBank, MenuIcon } from "lucide-react";
 import PageContainer from "@/components/PageContainer";
 
 const Lazy_GoalInsightCard = dynamic(() => import('@/components/GoalInsightCard'));
@@ -8,6 +8,9 @@ export default function Goals(){
 
     return (
         <PageContainer>
+            <div className="flex justify-center items-center absolute -top-10 left-2 lg:hidden">
+                <MenuIcon />
+            </div>
 
             <div className="flex flex-col lg:flex-row lg:justify-between">
                 <div>
