@@ -76,6 +76,10 @@ export default function Transactions(){
                     </div>
                 </div>
             </div>
+
+            <div className="flex justify-center items-center absolute bottom-10 right-5 h-10 w-10 bg-black rounded-full lg:hidden">
+                <p className="text-white">+</p>
+            </div>
              
         </PageContainer>
     )

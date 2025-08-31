@@ -35,6 +35,10 @@ export default function Budgets(){
                     <button className="border-1 border-gray-400 px-2 py-1 rounded-lg text-sm lg:text-base">+ Add Budget</button>
                 </div>
             </div>
+
+            <div className="flex justify-center items-center absolute bottom-10 right-5 h-10 w-10 bg-black rounded-full lg:hidden">
+                <p className="text-white">+</p>
+            </div>
              
         </PageContainer>
     )
