@@ -10,3 +10,8 @@ export interface IncomeVSExpensesType{
     income: number;
     expenses: number;
 }
+
+export interface ModalHandlerType{
+    openModal?: () => void;
+    /* closeModal?: (value: boolean) => void */
+}
