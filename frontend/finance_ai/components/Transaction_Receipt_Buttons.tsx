@@ -8,7 +8,7 @@ export default function Transaction_Receipt_Buttons({openModal}: ModalHandlerTyp
                 <p className="text-white">+</p>
                 <p className="text-white">Add Transaction</p>
             </div>
-            <button onClick={openModal} className="flex flex-col justify-center items-center border-1 border-gray-200 rounded-xl h-[10vh] w-1/2">
+            <button onClick={()=> openModal} className="flex flex-col justify-center items-center border-1 border-gray-200 rounded-xl h-[10vh] w-1/2">
                 <Image src="" alt="" />
                 <p>Create Category</p>
             </button>

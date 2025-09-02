@@ -10,7 +10,7 @@ export default function IncomeInsight(prop : InsightDataType){
                 <p className="font-bold text-2xl">{prop.data}</p>
                 <p className="text-sm"><span></span>{prop.remark}</p>
             </div>
-            <Image src={prop.icon} alt="" />
+            <Image src={""} alt="" />
         </div>
     )
 }
