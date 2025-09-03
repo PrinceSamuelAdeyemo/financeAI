@@ -8,8 +8,11 @@ import AI_Insight from "@/components/AI_Insight";
 import UpcomingBillComponent from "@/components/UpcomingBillComponent";
 import QuickActionButtonDashboard from "@/components/QuickActionButtonDashboard";
 import Transaction_Receipt_Buttons from "@/components/Transaction_Receipt_Buttons";
+import SidebarMobile from "@/components/ui/SidebarMobile";
+import SidebarMenu from "@/components/SidebarMenu";
+import OpenSidebarMobile from "@/components/ui/OpenSidebarMobile";
 
-import { MenuIcon } from "lucide-react";
+import { MenuIcon, X } from "lucide-react";
 
 import { InsightDataType, } from "@/Types/allTypes";
 
@@ -46,9 +49,7 @@ export default function Dashboard(){
 
     return (
         <PageContainer>
-            <div className="flex justify-center items-center absolute -top-10 left-2 lg:hidden">
-                <MenuIcon />
-            </div>
+            <SidebarMobile />
 
             <div className="grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full">
                 {
