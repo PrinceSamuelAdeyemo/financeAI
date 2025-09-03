@@ -8,6 +8,7 @@ import { ModalHandlerType } from "@/Types/allTypes";
 import BaseModal from "./modals/BaseModal";
 import CreateCategoryModal from "./modals/CreateCategoryModal";
 import CreateBudgetModal from "./modals/CreateBudgetModal";
+import CreateGoalModal from "./modals/CreateGoalModal";
 import Transaction_Receipt_Buttons from "./Transaction_Receipt_Buttons";
 
 
@@ -25,13 +26,14 @@ export default function QuickActionButtonDashboard(){
                     <Image src="" alt="" />
                     <p>Create Budget</p>
                 </button>
-                <button className="flex flex-col justify-center items-center border-1 border-gray-200 rounded-xl h-[10vh] w-1/2">
+                <button onClick={() => setIsSetgoalModalOpen?.(true)} className="flex flex-col justify-center items-center border-1 border-gray-200 rounded-xl h-[10vh] w-1/2">
                     <p>Set Goal</p>
                 </button>
             </div>
             {/* {isModalOpen && <BaseModal modalOpen={setIsModalOpen} />} */}
             {isCategoryModalOpen && <CreateCategoryModal categoryModalOpen={setIsCategoryModalOpen} />}
             {isBudgetModalOpen && <CreateBudgetModal budgetModalOpen={setIsBudgetModalOpen} />}
+            {isSetgoalModalOpen && <CreateGoalModal budgetModalOpen={setIsSetgoalModalOpen} />}
         </div>
     )
 }
