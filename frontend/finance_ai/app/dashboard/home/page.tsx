@@ -43,10 +43,6 @@ export default function Dashboard(){
         },
     ]
 
-    const openCreateCategoryModal = () => {
-        alert("Hello")
-    }
-
 
     return (
         <PageContainer>
@@ -89,7 +85,7 @@ export default function Dashboard(){
                         <UpcomingBillComponent />
                     </GraphComponent>
                     <GraphComponent title="Quick actions"  message="">
-                        <QuickActionButtonDashboard openModal={openCreateCategoryModal} />
+                        <QuickActionButtonDashboard />
                     </GraphComponent>
 
                 </div>

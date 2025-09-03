@@ -1,8 +1,21 @@
 
-export default function BaseModal(){
+import { X } from "lucide-react"
+
+import { ModalHandlerType } from "@/Types/allTypes"
+
+export default function BaseModal({children, isOpenModal}: {children?: React.ReactNode} & {isOpenModal?: ModalHandlerType}){
     return (
-        <div className="bg-black w-[20vw] h-[20vh]">
-            
+        /* Modal background layer */
+        <div className="flex justify-center items-center w-full h-[93vh] top-0 left-0 absolute z-10">
+            {/* Main modal parent */}
+            <div className="relative bg-white border-1 border-gray-400 shadow-xl h-[80%] w-[90%] lg:w-[80%]">
+                <button onClick={() => isOpenModal?.(false)} className="absolute top-2 right-2">
+                    <X className="text-red-500" />
+                </button>
+                <div className="absolute bottom-0 w-full h-[95%] overflow-y-auto">
+                    {children}
+                </div>
+            </div>
         </div>
     )
 }
