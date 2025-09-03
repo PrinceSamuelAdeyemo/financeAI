@@ -33,7 +33,10 @@ export default function CreateCategoryModal(
                         </div>
                         <div className="flex flex-col gap-2 w-full">
                             <label htmlFor="category-type" className="">Type:</label>
-                            <input type="text" id="category-type" className="border-1 border-gray-200 bg-gray-50 h-10 w-full px-2 rounded-md" required />
+                            <select id="category-type" className="border-1 border-gray-200 bg-gray-50 h-10 w-full px-2 rounded-md" required >
+                                <option value="rent">Rent</option>
+                                <option value="transport">Transport</option>
+                            </select>
                         </div>
                         <div className="flex flex-col gap-2 w-full">
                             <label htmlFor="category-icon">Category Icon</label>
