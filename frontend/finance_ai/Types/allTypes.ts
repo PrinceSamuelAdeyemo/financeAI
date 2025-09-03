@@ -11,4 +11,11 @@ export interface IncomeVSExpensesType{
     expenses: number;
 }
 
+export interface CategoryType{
+    id?: string;
+    name: string;
+    type: string;
+    icon?: string;
+}
+
 export type ModalHandlerType = (value: boolean) => void;
