@@ -100,6 +100,7 @@ class Budget(models.Model):
     id = models.UUIDField(default=uuid.uuid4, primary_key=True, editable=False)
     user_id = models.ForeignKey(User, on_delete=models.PROTECT)
     category_id = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
+    name = models.CharField(max_length=128)
     amount = models.DecimalField(max_digits=12, decimal_places=2)
     start_date = models.DateField(null=True, blank=True)
     end_date = models.DateTimeField(null=True, blank=True)
