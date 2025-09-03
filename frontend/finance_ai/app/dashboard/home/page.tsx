@@ -7,10 +7,8 @@ import BalanceForecastChart from "@/components/BalanceForecastChart";
 import AI_Insight from "@/components/AI_Insight";
 import UpcomingBillComponent from "@/components/UpcomingBillComponent";
 import QuickActionButtonDashboard from "@/components/QuickActionButtonDashboard";
-import Transaction_Receipt_Buttons from "@/components/Transaction_Receipt_Buttons";
 import SidebarMobile from "@/components/ui/SidebarMobile";
-import SidebarMenu from "@/components/SidebarMenu";
-import OpenSidebarMobile from "@/components/ui/OpenSidebarMobile";
+import HomepagePopup from "@/components/page_popups/HomepagePopup";
 
 import { MenuIcon, X } from "lucide-react";
 
@@ -90,11 +88,9 @@ export default function Dashboard(){
                     </GraphComponent>
 
                 </div>
-            </div>
+            </div>       
 
-            <div className="flex justify-center items-center absolute bottom-10 right-5 h-10 w-10 bg-black rounded-full lg:hidden">
-                <p className="text-white">+</p>
-            </div>
+            <HomepagePopup />
                 
         </PageContainer>
     )
