@@ -32,11 +32,11 @@ export default function CreateBudgetModal(
                             <input type="text" id="amount" className="border-1 border-gray-200 bg-gray-50 h-10 w-full px-2 rounded-md" required />
                         </div>
                         <div className="flex flex-col gap-2 w-full">
-                            <label htmlFor="budget-name" className="">Name:</label>
+                            <label htmlFor="start-date" className="">Start Date</label>
                             <input type="date" id="start-date" className="border-1 border-gray-200 bg-gray-50 h-10 w-full px-2 rounded-md" required />
                         </div>
                         <div className="flex flex-col gap-2 w-full">
-                            <label htmlFor="budget-name" className="">Name:</label>
+                            <label htmlFor="end-date" className="">End Date</label>
                             <input type="date" id="end-date" className="border-1 border-gray-200 bg-gray-50 h-10 w-full px-2 rounded-md" required />
                         </div>
                         <div>
