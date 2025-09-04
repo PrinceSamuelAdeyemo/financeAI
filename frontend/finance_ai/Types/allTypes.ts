@@ -18,4 +18,9 @@ export interface CategoryType{
     icon?: string;
 }
 
+export interface ProgressbarType{
+    position: number;
+    color: string;
+}
+
 export type ModalHandlerType = (value: boolean) => void;
