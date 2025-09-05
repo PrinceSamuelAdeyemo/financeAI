@@ -23,4 +23,24 @@ export interface ProgressbarType{
     color: string;
 }
 
+/* export interface ButtonType{
+    text: string;
+    color: string;
+    backgroundColor?: string;
+    border?: string;
+    borderColor?: string;
+    width?: string;
+    height?: string;
+    paddingX?: string;
+    paddingY?: string;
+} 
+*/
+
+export interface EachAI_InsightType{
+    bgColor: string;
+    icon?: string;
+    title: string;
+    message: string;
+}
+
 export type ModalHandlerType = (value: boolean) => void;
