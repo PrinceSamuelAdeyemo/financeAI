@@ -1,10 +1,15 @@
+'use client'
+
 import dynamic from "next/dynamic";
+import { useState } from "react";
 import { PiggyBank, MenuIcon } from "lucide-react";
 import PageContainer from "@/components/PageContainer";
+import CreateGoalModal from "@/components/modals/CreateGoalModal";
 
 const Lazy_GoalInsightCard = dynamic(() => import('@/components/GoalInsightCard'));
 
 export default function Goals(){
+    const [openCreateGoalModal, setOpenCreateGoalModal] = useState<boolean>(false);
 
     return (
         <PageContainer>
@@ -17,7 +22,7 @@ export default function Goals(){
                     <p className="font-semibold">Goals</p>
                     <p className="text-gray-400">Track your financial objectives</p>
                 </div>
-                <button className="bg-purple-600 text-white w-full h-10 rounded-xl lg:px-4 py-2 lg:w-fit">
+                <button onClick={() => setOpenCreateGoalModal(true)} className="bg-purple-600 text-white w-full h-10 rounded-xl lg:px-4 py-2 lg:w-fit">
                     + Create Goal
                 </button>
             </div>
@@ -30,6 +35,8 @@ export default function Goals(){
             <div className="flex justify-center items-center absolute bottom-10 right-5 h-10 w-10 bg-black rounded-full lg:hidden">
                 <p className="text-white">+</p>
             </div>
+
+            {openCreateGoalModal && <CreateGoalModal budgetModalOpen={setOpenCreateGoalModal} /> }
              
         </PageContainer>
     )
