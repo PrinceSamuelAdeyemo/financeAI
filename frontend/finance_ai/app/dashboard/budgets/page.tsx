@@ -1,10 +1,15 @@
+'use client';
+
 import dynamic from "next/dynamic";
+import { useState } from "react";
 import { PiggyBank, MenuIcon } from "lucide-react";
 import PageContainer from "@/components/PageContainer";
+import CreateBudgetModal from "@/components/modals/CreateBudgetModal";
 
 const Lazy_BudgetInsightCard = dynamic(() => import('@/components/BudgetInsightCard'));
 
 export default function Budgets(){
+    const [openCreateBudgetModal, setOpenCreateBudgetModal] = useState<boolean>(false);
 
     return (
         <PageContainer>
@@ -17,7 +22,7 @@ export default function Budgets(){
                     <p className="font-semibold">Budgets</p>
                     <p className="text-gray-400">Track your spending limits</p>
                 </div>
-                <button className="bg-purple-600 text-white w-full h-10 rounded-xl lg:px-4 py-2 lg:w-fit">
+                <button onClick={() => setOpenCreateBudgetModal(true)} className="bg-purple-600 text-white w-full h-10 rounded-xl lg:px-4 py-2 lg:w-fit">
                     + Create Budget
                 </button>
             </div>
@@ -35,13 +40,15 @@ export default function Budgets(){
                     <PiggyBank />
                     <p className="text-sm font-semibold">Create New Budget</p>
                     <p className="text-sm text-gray-500">Set spending limits for your categories</p>
-                    <button className="border-1 border-gray-400 px-2 py-1 rounded-lg text-sm lg:text-base">+ Add Budget</button>
+                    <button onClick={() => setOpenCreateBudgetModal(true)} className="border-1 border-gray-400 px-2 py-1 rounded-lg text-sm lg:text-base">+ Add Budget</button>
                 </div>
             </div>
 
             <div className="flex justify-center items-center absolute bottom-10 right-5 h-10 w-10 bg-black rounded-full lg:hidden">
                 <p className="text-white">+</p>
             </div>
+
+            {openCreateBudgetModal && <CreateBudgetModal budgetModalOpen={setOpenCreateBudgetModal} /> }
              
         </PageContainer>
     )
