@@ -1,3 +1,5 @@
+import Progressbar from "./ui/Progressbar"
+
 export default function GoalInsightCard(){
     return (
         <div className="flex flex-col gap-4 border-2 border-gray-300 rounded-xl p-2 lg:p-4">
@@ -6,12 +8,15 @@ export default function GoalInsightCard(){
                 <p className="text-xs border-1 border-gray-400 px-1 rounded-xl font-semibold">31 Aug 2025</p>
             </div>
             <p className="text-sm text-gray-500">#35,200 of #60,000</p>
-            <p>Progress bar</p>
+            <Progressbar position={35} color="purple" />
 
             <table>
                 <thead>
-                    <th className="text-start text-gray-400 font-normal">Progress</th>
-                    <th className="text-start text-gray-400 font-normal">Remaining</th>
+                    <tr>
+                        <th className="text-start text-gray-400 font-normal">Progress</th>
+                        <th className="text-start text-gray-400 font-normal">Remaining</th>
+                    </tr>
+                    
                 </thead>
                 <tbody>
                     <tr>
