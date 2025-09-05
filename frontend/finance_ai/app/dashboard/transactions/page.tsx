@@ -20,7 +20,7 @@ export default function Transactions(){
                     <p className="font-semibold">Transactions</p>
                     <p className="text-gray-400">Track your income and expenses</p>
                 </div>
-                <button className="bg-purple-600 text-white w-full h-10 rounded-xl lg:px-4 py-2 lg:w-fit">
+                <button className="bg-purple-600 text-white w-full rounded-xl lg:px-4 py-2 lg:w-fit">
                     + Add Transaction
                 </button>
             </div>

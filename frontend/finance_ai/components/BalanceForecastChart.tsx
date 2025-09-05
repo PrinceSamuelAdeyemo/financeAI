@@ -71,7 +71,7 @@ const BalanceForecastChart = () => {
             </AreaChart>
         </ResponsiveContainer>
         <div className='bg-blue-100 px-4 py-2 rounded-xl'>
-            <p className='text-blue-700'><span className='font-semibold'>Forecast:</span> {"At current pace, you'll end the month with #120,000"}</p>
+            <p className='text-blue-700 text-sm lg:text-base'><span className='font-semibold'>Forecast:</span> {"At current pace, you'll end the month with #120,000"}</p>
         </div>
     </div>
   );
