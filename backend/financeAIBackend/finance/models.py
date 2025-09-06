@@ -31,14 +31,14 @@ class Transaction(models.Model):
         ('expenses', 'Expenses'),
         ('income', 'Income'),
         ('transfer', 'Transfer'),
-        ('saving', 'Saving'),
-        ('investment', 'Investment'),
+        ('savings', 'Savings'),
+        ('investments', 'Investments'),
         ('debt_repayment', 'Debt Repayment')
     ]
     id = models.UUIDField(default=uuid.uuid4, primary_key=True, editable=False)
-    user_id = models.ForeignKey(User, on_delete=models.SET_NULL, null=True)
-    account_id = models.ForeignKey(Account, on_delete=models.SET_NULL, null=True)
-    category_id = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True)
+    user_id = models.ForeignKey(User, on_delete=models.SET_NULL, null=True, related_name='transactions')
+    account_id = models.ForeignKey(Account, on_delete=models.SET_NULL, null=True, related_name='transactions')
+    category_id = models.ForeignKey(Category, on_delete=models.SET_NULL, null=True, related_name='transactions')
     amount = models.DecimalField(max_digits=12, decimal_places=2)
     transaction_type = models.CharField(choices=TRANSACTION_TYPE, max_length=14)
     description = models.TextField()
@@ -47,7 +47,6 @@ class Transaction(models.Model):
 
     def __str__(self):
         return self.id
-
 
 class Subscription(models.Model):
     SUBCRIPTION_TYPE = [
