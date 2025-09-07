@@ -1,5 +1,9 @@
-from django.shortcuts import render
+from datetime import datetime
+import calendar
+
+from django.db.models import Q, Sum, Count
 from rest_framework import viewsets
+from rest_framework.decorators import action
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework.status import HTTP_200_OK, HTTP_500_INTERNAL_SERVER_ERROR
@@ -13,6 +17,28 @@ from .serializers import (
     AccountSerializer, TransactionSerializer, SubscriptionSerializer, InvestmentSerializer,
     BudgetSerializer, GoalSerializer, AI_InsightSerializer,
 )
+
+from core.models import Category
+
+# Functions
+import calendar
+from datetime import date
+def group_transactions_by_weeks(month, year):
+    print(date(2025, 10, 1))
+    print(calendar.monthrange(year, month))
+    _, last_day = calendar.monthrange(year, month)
+    weeks = []
+    """ for i in range(0, last_day, 7):
+        start_date = i+1
+        end_date = min(i+7, last_day)
+        weeks.append({
+            f"week {len(weeks) + 1 }": min(last_day, start_date + 6), 
+            "start_date": f"{date(year, month, start_date)}", 
+            "end_date": f"{date(year, month, end_date)}"
+        })
+
+    return weeks """
+
 
 # Create your views here.
 class DashboardTop4Account(APIView):
@@ -40,7 +66,31 @@ class DashboardTop4Account(APIView):
             return Response({'message': 'Something went wrong while processing the request.'}, status=HTTP_500_INTERNAL_SERVER_ERROR)
         
 
+class CashFlow(APIView):
+    permission_classes = [IsAuthenticated]
+    def get(self, request):
+        """ income = sum([income for income in Transaction.objects.filter(user_id = request.user, transaction_type = 'income')])
+        income2 = Transaction.objects.annotate(
+            total_income=Sum('amount'), filter=Q(user_id=request.user)
+        ) """
+        cashflow = Transaction.objects.filter(user_id=request.user
+                                            ).aggregate(
+                                                total_income=Sum('amount', filter=Q(transaction_type='income')), total_expenses=Sum('amount', filter=Q(transaction_type='expenses'))
+        )        
+        # expenses = sum([expense for expense in Transaction.objects.filter(user_id = request.user, transaction_type = 'expenses')])
 
+        """ for income in Transaction.objects.filter(user_id = request.user, transaction_type = 'income'):
+            for i in range(1, 31, 7):
+                if (income.transaction_date == i):
+                    week =  """
+        try:
+            pass
+            #for i in range
+        except:
+            return Response({'message': 'Something went wrong while processing the request.'}, status=HTTP_500_INTERNAL_SERVER_ERROR)
+        #print('income2', income2)
+        return Response({'message': cashflow})
+        
 
 class AccountViewset(viewsets.ModelViewSet):
     queryset = Account.objects.all()
