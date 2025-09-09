@@ -3,6 +3,14 @@ from .models import (
     Account, Transaction, Subscription, Investment, Budget, Goal, AI_Insight
 )
 
+""" class DashboardTop4AccountSerializer(serializers.Serializer):
+    income = sum[Transaction.objects.filter(user_id = request.user, transaction_type="income")]
+    expenses = sum[Transaction.objects.filter(user_id = request.user, transaction_type="expenses")]
+    if expenses < 0:
+        return Response({"message": "Expenses cannot be less than 0"})
+    else:
+        net_balance = income - expenses
+    savings_rate = (net_balance/income) * 100 """
 
 class AccountSerializer(serializers.ModelSerializer):
     class Meta:

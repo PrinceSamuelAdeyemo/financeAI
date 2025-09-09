@@ -1614,6 +1614,9 @@ components:
           type: string
           format: uuid
           readOnly: true
+        name:
+          type: string
+          maxLength: 128
         amount:
           type: string
           format: decimal
@@ -1645,6 +1648,7 @@ components:
       - amount
       - created_at
       - id
+      - name
       - updated_at
       - user_id
     Category:
@@ -1867,6 +1871,9 @@ components:
           type: string
           format: uuid
           readOnly: true
+        name:
+          type: string
+          maxLength: 128
         amount:
           type: string
           format: decimal
@@ -2232,16 +2239,16 @@ components:
       - expenses
       - income
       - transfer
-      - saving
-      - investment
+      - savings
+      - investments
       - debt_repayment
       type: string
       description: |-
         * `expenses` - Expenses
         * `income` - Income
         * `transfer` - Transfer
-        * `saving` - Saving
-        * `investment` - Investment
+        * `savings` - Savings
+        * `investments` - Investments
         * `debt_repayment` - Debt Repayment
     TypeEnum:
       enum:
