@@ -42,16 +42,23 @@ def group_transactions_by_weeks(month, year):
 
 # Create your views here.
 class DashboardTop4Account(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = []
     def get(self, request):
         try:
-            income = sum[Transaction.objects.filter(user_id = request.user, transaction_type="income")]
-            expenses = sum[Transaction.objects.filter(user_id = request.user, transaction_type="expenses")]
+            income = sum([transaction.amount for transaction in Transaction.objects.filter(transaction_type="income")])
+            expenses = sum([transaction.amount for transaction in Transaction.objects.filter(transaction_type="expenses")])
+            print(income, expenses)
+            """ income = Transaction.objects.aggregate(
+                total_income = Sum("amount", filter=Q(transaction_type = "income"))
+            )
+            expenses = Transaction.objects.aaggregate(
+                total_expenses = Sum("amount", filter=Q(transaction_type = "expenses"))
+            ) """
             if expenses < 0:
                 return Response({"message": "Expenses cannot be less than 0"})
             else:
                 net_balance = income - expenses
-            savings_rate = (net_balance/income) * 100
+            savings_rate = ((net_balance/income) * 100) if income > 0 else 0
 
             data = {
                 "income": income,
@@ -62,8 +69,8 @@ class DashboardTop4Account(APIView):
 
             return Response({'message': data}, status=HTTP_200_OK)
         
-        except:
-            return Response({'message': 'Something went wrong while processing the request.'}, status=HTTP_500_INTERNAL_SERVER_ERROR)
+        except Exception as e:
+            return Response({'message': e}, status=HTTP_500_INTERNAL_SERVER_ERROR)
         
 
 class CashFlow(APIView):
