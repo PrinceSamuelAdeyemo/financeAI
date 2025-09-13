@@ -1,3 +1,5 @@
+import api from "@/utils/api";
+
 import PageContainer from "@/components/PageContainer";
 import IncomeInsight from "@/components/IncomeInsight";
 import GraphComponent from "@/components/GraphComponent";
@@ -14,10 +16,21 @@ import { MenuIcon, X } from "lucide-react";
 
 import { InsightDataType, } from "@/Types/allTypes";
 
+const getDashboardOverviewData = async() => {
+    try{
+        const response = await api.get("api/finance/account_overview")
+        console.log(response.data)
+        return response.data["message"]
+    }
+    catch (error){
+        console.error(error)
+    }
+}
 
-export default function Dashboard(){
 
-    const InsightData: InsightDataType[] = [
+export default async function Dashboard(){
+
+    /* const InsightData: InsightDataType[] = [
         {
             title: 'Income',
             data: '#870,000',
@@ -42,16 +55,16 @@ export default function Dashboard(){
             remark: 'Excellence',
             icon: '',
         },
-    ]
+    ] */
 
-
+    const getDashboardData: InsightDataType[] = await getDashboardOverviewData()
     return (
         <PageContainer>
             <SidebarMobile />
 
             <div className="grid gap-3 grid-cols-1 md:grid-cols-2 lg:grid-cols-4 w-full">
                 {
-                    InsightData.map((insight_data, index) => (
+                    getDashboardData.map((insight_data, index) => (
                         <IncomeInsight key={index} {...insight_data} />
                     ))
                 }
