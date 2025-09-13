@@ -60,12 +60,35 @@ class DashboardTop4Account(APIView):
                 net_balance = income - expenses
             savings_rate = ((net_balance/income) * 100) if income > 0 else 0
 
-            data = {
-                "income": income,
-                "expenses": expenses,
-                "net_balance": net_balance,
-                "savings_rate": savings_rate
+            income_object = {
+                "title": "Income",
+                "data": income,
+                "remark": "12%",
+                "icon": "/somepic"
             }
+
+            expenses_object = {
+                "title": "Expenses",
+                "data": expenses,
+                "remark": "6%",
+                "icon": "/somepic"
+            }
+
+            net_balance_object = {
+                "title": 'Net Balance',
+                "data": net_balance,
+                "remark": '15%',
+                "icon": '',
+            }
+
+            savings_rate_object = {
+                "title": 'Net Balance',
+                "data": '#441,400',
+                "remark": savings_rate,
+                "icon": '',
+            }
+
+            data = [income_object, expenses_object, net_balance_object, savings_rate_object]
 
             return Response({'message': data}, status=HTTP_200_OK)
         
