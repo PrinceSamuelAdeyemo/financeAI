@@ -30,33 +30,6 @@ const getDashboardOverviewData = async() => {
 
 export default async function Dashboard(){
 
-    /* const InsightData: InsightDataType[] = [
-        {
-            title: 'Income',
-            data: '#870,000',
-            remark: '12%',
-            icon: '',
-        },
-        {
-            title: 'Expenses',
-            data: '#428,600',
-            remark: '3%',
-            icon: '',
-        },
-        {
-            title: 'Net Balance',
-            data: '#441,400',
-            remark: '15%',
-            icon: '',
-        },
-        {
-            title: 'Savings Rate',
-            data: '51%',
-            remark: 'Excellence',
-            icon: '',
-        },
-    ] */
-
     const getDashboardData: InsightDataType[] = await getDashboardOverviewData()
     return (
         <PageContainer>

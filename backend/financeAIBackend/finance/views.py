@@ -97,16 +97,16 @@ class DashboardTop4Account(APIView):
         
 
 class CashFlow(APIView):
-    permission_classes = [IsAuthenticated]
+    permission_classes = []
     def get(self, request):
         """ income = sum([income for income in Transaction.objects.filter(user_id = request.user, transaction_type = 'income')])
         income2 = Transaction.objects.annotate(
             total_income=Sum('amount'), filter=Q(user_id=request.user)
         ) """
-        cashflow = Transaction.objects.filter(user_id=request.user
-                                            ).aggregate(
+        cashflow = Transaction.objects.all().aggregate(
                                                 total_income=Sum('amount', filter=Q(transaction_type='income')), total_expenses=Sum('amount', filter=Q(transaction_type='expenses'))
-        )        
+        )
+        print(cashflow)     
         # expenses = sum([expense for expense in Transaction.objects.filter(user_id = request.user, transaction_type = 'expenses')])
 
         """ for income in Transaction.objects.filter(user_id = request.user, transaction_type = 'income'):
