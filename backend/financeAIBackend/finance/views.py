@@ -1,4 +1,4 @@
-from datetime import datetime
+from datetime import datetime, date
 import calendar
 
 from django.db.models import Q, Sum, Count
@@ -98,7 +98,10 @@ class DashboardTop4Account(APIView):
 
 class CashFlow(APIView):
     permission_classes = []
-    def get(self, request):
+    def get(self, request, month = None, year = None):
+        month, year = 9, 2025
+        start_date = date(year, month, 1)
+        end_date = calendar.monthrange(year, month)[1] + 1
         """ income = sum([income for income in Transaction.objects.filter(user_id = request.user, transaction_type = 'income')])
         income2 = Transaction.objects.annotate(
             total_income=Sum('amount'), filter=Q(user_id=request.user)
@@ -106,13 +109,18 @@ class CashFlow(APIView):
         cashflow = Transaction.objects.all().aggregate(
                                                 total_income=Sum('amount', filter=Q(transaction_type='income')), total_expenses=Sum('amount', filter=Q(transaction_type='expenses'))
         )
-        print(cashflow)     
+        # print(cashflow)     
         # expenses = sum([expense for expense in Transaction.objects.filter(user_id = request.user, transaction_type = 'expenses')])
 
-        """ for income in Transaction.objects.filter(user_id = request.user, transaction_type = 'income'):
-            for i in range(1, 31, 7):
-                if (income.transaction_date == i):
-                    week =  """
+        filtered = Transaction.objects.filter(transaction_type = 'expenses')
+        for income in filtered:
+            for i in range(1, end_date):
+                if (income.transaction_date.date() == date(year, month, i)):
+                    print(income.transaction_date)
+
+                else:
+                    print(2)
+                    print(end_date/7)
         try:
             pass
             #for i in range

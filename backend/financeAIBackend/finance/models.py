@@ -46,7 +46,7 @@ class Transaction(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return self.id
+        return f"{self.id}"
 
 class Subscription(models.Model):
     SUBCRIPTION_TYPE = [
