@@ -1,8 +1,22 @@
+import api from "@/utils/api";
 import dynamic from "next/dynamic"
+
+import { TransactionType } from "@/Types/allTypes";
 
 const Lazy_EachTransactionInsightTableEntry = dynamic(() => import('@/components/EachTransactionInsightTableEntry'));
 
-export default function EachTransactionInsightTable(){
+const getListOfTransactions = async() => {
+    try{
+        const response = await api.get("api/finance/accounts")
+        console.log(response)
+        return response.data
+    }catch(error){
+        console.error(error)
+    }
+}
+
+export default async function EachTransactionInsightTable(){
+    const transactionList: TransactionType[] = await getListOfTransactions();
     return (
         <table className="w-full border-spacing-y-4">
             <thead>
@@ -15,26 +29,11 @@ export default function EachTransactionInsightTable(){
                 <th className="text-start">Actions</th>
             </thead>
             <tbody className="">
-                <Lazy_EachTransactionInsightTableEntry />
-                <Lazy_EachTransactionInsightTableEntry />
-                <Lazy_EachTransactionInsightTableEntry />
-                <Lazy_EachTransactionInsightTableEntry />
-                <Lazy_EachTransactionInsightTableEntry />
-                <Lazy_EachTransactionInsightTableEntry />
-                <Lazy_EachTransactionInsightTableEntry />
-                <Lazy_EachTransactionInsightTableEntry />
-                <Lazy_EachTransactionInsightTableEntry />
-                <Lazy_EachTransactionInsightTableEntry />
-                <Lazy_EachTransactionInsightTableEntry />
-                <Lazy_EachTransactionInsightTableEntry />
-                <Lazy_EachTransactionInsightTableEntry />
-                <Lazy_EachTransactionInsightTableEntry />
-                <Lazy_EachTransactionInsightTableEntry />
-                <Lazy_EachTransactionInsightTableEntry />
-                <Lazy_EachTransactionInsightTableEntry />
-                <Lazy_EachTransactionInsightTableEntry />
-                <Lazy_EachTransactionInsightTableEntry />
-                <Lazy_EachTransactionInsightTableEntry />
+                {
+                    transactionList.map((transaction, index) => (
+                        <Lazy_EachTransactionInsightTableEntry />
+                    ))
+                }
             </tbody>
         </table>
     )
