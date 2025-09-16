@@ -43,4 +43,13 @@ export interface EachAI_InsightType{
     message: string;
 }
 
+export interface TransactionType{
+    id: string;
+    user_id: string;
+    name: string;
+    account_type: string;
+    balance: string;
+    institution: string;
+}
+
 export type ModalHandlerType = (value: boolean) => void;
