@@ -50,6 +50,7 @@ export interface TransactionType{
     account_type: string;
     balance: string;
     institution: string;
+    date: string;
 }
 
 export type ModalHandlerType = (value: boolean) => void;
