@@ -7,7 +7,7 @@ const Lazy_EachTransactionInsightTableEntry = dynamic(() => import('@/components
 
 const getListOfTransactions = async() => {
     try{
-        const response = await api.get("api/finance/accounts")
+        const response = await api.get("api/finance/accounts/")
         console.log(response)
         return response.data
     }catch(error){
@@ -31,7 +31,7 @@ export default async function EachTransactionInsightTable(){
             <tbody className="">
                 {
                     transactionList.map((transaction, index) => (
-                        <Lazy_EachTransactionInsightTableEntry />
+                        <Lazy_EachTransactionInsightTableEntry {...transaction} />
                     ))
                 }
             </tbody>

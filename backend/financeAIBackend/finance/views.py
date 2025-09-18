@@ -133,7 +133,7 @@ class CashFlow(APIView):
 class AccountViewset(viewsets.ModelViewSet):
     queryset = Account.objects.all()
     serializer_class = AccountSerializer
-    permission_classes = [IsAuthenticated, IsOwner]
+    permission_classes = []
 
 
 class TransactionViewset(viewsets.ModelViewSet):

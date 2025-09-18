@@ -1,12 +1,13 @@
 import { Edit, Trash2 } from "lucide-react";
+import { TransactionType } from "@/Types/allTypes";
 
-export default function EachTransactionInsightTableEntry(){
+export default function EachTransactionInsightTableEntry(props?: TransactionType){
     return (
         <tr className="border-b-1 border-gray-200 h-16">
-            <td className="text-start">28 Aug</td>
-            <td className="text-start">Shoprite</td>
+            <td className="text-start">{props?.date}</td>
+            <td className="text-start">{props?.name}</td>
             <td className="text-start"><p className="text-star text-xs px-2 rounded-xl w-fit bg-blue-100 text-blue-900">Groceries</p></td>
-            <td className="text-start">Bank 1</td>
+            <td className="text-start">{props?.account_type}</td>
             <td className="text-start font-semibold">#15,200</td>
             <td className="flex flex-col pt-2">
                 <p className="text-sm">Weekly groceries</p>
